@@ -4,9 +4,12 @@ namespace Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
 trait CreatesApplication
 {
+    use LazilyRefreshDatabase;
+    
     /**
      * Creates the application.
      */

@@ -22,7 +22,9 @@ jobs:
           php-version: '8.2'
 
       - name: Copy .env file
-        run: cp .env.ci .env
+        run: |
+          cp .env.ci .env
+          cp .env.ci .env.testing
 
       - name: Run composer
         run: |
@@ -33,7 +35,7 @@ jobs:
           php artisan key:generate
 
       - name: Migrate database
-        run: php artisan migrate
+        run: php artisan migrate --env=testing --force
 
       - name: Seed database
         run: php artisan db:seed --env=testing --force
@@ -41,3 +43,14 @@ jobs:
       - name: Run test suite
         run: |
           php artisan test
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOWS_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: cicd_testing
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --helath-timeout=5s --health-retries=3
+
