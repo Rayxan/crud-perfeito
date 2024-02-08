@@ -185,4 +185,13 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Test Configurations
+    |--------------------------------------------------------------------------
+    | These credentials are used to set the base URL while
+    | testing the application and to access the login route.
+    */
+
+    'base_url' => env('TEST_BASE_URL'),
 ];
