@@ -1,19 +1,11 @@
 name: Tests
 
-on:
-  pull_request:
-    branches:
-      - '*'
-
-  push:
-    branches:
-      - '*'
+on: [pull_request, push]
 
 jobs:
   tests:
     name: Run tests
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
 
