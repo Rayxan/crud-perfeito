@@ -28,6 +28,10 @@ jobs:
         run: |
           composer install --no-interaction
 
+      - name: Generate key
+        run: |
+          php artisan key:generate
+
       - name: Run test suite
         run: |
           php artisan test
