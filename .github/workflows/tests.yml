@@ -52,5 +52,5 @@ jobs:
           MYSQL_DATABASE: cicd_testing
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --helath-timeout=5s --health-retries=3
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=5s --health-retries=3
 
