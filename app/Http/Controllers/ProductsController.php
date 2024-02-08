@@ -24,7 +24,6 @@ class ProductsController extends Controller
         //     unset($servicoEmissor->deleted_at);
         //     return $servicoEmissor;
         // });
-        
 
         return response()->json(['product' => $product]);
     }
