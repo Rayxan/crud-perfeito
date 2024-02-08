@@ -33,7 +33,7 @@ jobs:
           php artisan key:generate
 
       - name: Migrate database
-        run: php artisan migrate --env=testing --force
+        run: php artisan migrate
 
       - name: Seed database
         run: php artisan db:seed --env=testing --force
